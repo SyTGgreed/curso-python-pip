@@ -12,7 +12,7 @@ def generar_pie_chart(labels,values): # grafica de torta
   figura,coordenadas = plt.subplots()
   coordenadas.pie(values,labels=labels)
   coordenadas.axis('equal')
-  plt.savefig('pie.png')
+  plt.savefig('charts_pie_final.png')
   plt.close()
 
 if __name__ == '__main__':

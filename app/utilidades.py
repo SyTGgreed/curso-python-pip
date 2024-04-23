@@ -1,3 +1,4 @@
+import pandas as pd
 def obtener_poblacion(country_dict):
   poblacion_dict = {
     '2022': int(country_dict['2022 Population']),
@@ -25,11 +26,14 @@ def poblacion_por_pais(data, country):
   return result
 
 def datos_poblacion_mundial(data,continente):
-  dict_pais_porcentaje = []
+  
   data = list(filter(lambda item: item['Continent'] == continente, data))
+  #data = data[data['Continent']==continente]   #----> utilizando la hoja de datos con pandas
   paises = list(map(lambda x: x['Country/Territory'], data))
+  #paises = data['Country'].values   # -----------> utilizando hoja de datos con pandas
   porcentaje = list(map(lambda x: x['World Population Percentage'], data))
- 
+  #porcentaje = data['World Population Percentage'].values #----> aqui igual
+  
   pais_porcentaje = list(zip(paises, porcentaje))
   #print(pais_porcentaje)
   diccionario = {key : value for key, value in pais_porcentaje}
